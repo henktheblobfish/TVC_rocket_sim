@@ -1,3 +1,8 @@
+'''
+DISCLAIMER: the code is only a template for a simulation, the physics may not be completely accurate, make sure it is realistic for your vehicle.
+'''
+
+
 import math
 from math import *
 import time
@@ -50,7 +55,8 @@ def getrotacc(angle,thrust):
     # Moment of Inertia, replace this with your's.
     rotinertia = 0.02
     # calculating the torque on the rocket. this line uses the angle of your engine in degrees, the thrust and the distance of the swivel point of the engine from the COM.
-    torque = (round(math.cos(radians(90 + angle)),6) * thrust) * 0.1
+    swiveldistance = 0.1 # replace this with your engine's swivel point's distance from the COM in meters
+    torque = (round(math.cos(radians(90 + angle)),6) * thrust) * swiveldistance
     # acc in radians/s^2 = torque in Nm / inertia in Kg/m
     radacc = torque / rotinertia
     #convert radians to degrees
